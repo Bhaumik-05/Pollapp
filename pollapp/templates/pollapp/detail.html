@@ -1,1 +1,19 @@
-<h1>{{ question.question_text }}</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ question.question_text }}</title>
+</head>
+<body>
+    <h1>{{ question.question_text }}</h1>
+
+    {% if question.choice_set.all %}
+        <ul>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.choice_text }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No choices available.</p>
+    {% endif %}
+</body>
+</html>
